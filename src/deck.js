@@ -10,11 +10,12 @@ module.exports = function deckOfCards() {
 
   let randomNumber = Math.floor( Math.random() * 52 );
   // console.log(randomNumber); //tells me the position within the cardPossibilities array
-  console.log(cards[randomNumber]);
+  // console.log(cards[randomNumber]); //prints out this random number
 
 
   return cards;
 };
 
+//allowed me to see the deck creation process
 // let myDeck = deckOfCards();
 // console.log(myDeck); //spits out the whole deck of cards
