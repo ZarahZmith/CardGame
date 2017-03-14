@@ -1,6 +1,10 @@
 
 let cardPossibilities = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
 
+/**
+ * Exports a deck of cards to be used in the game of war
+ * @return {Array} Returns a shuffled deck of 52 cards
+ */
 module.exports = function deckOfCards() {
   let cards = [];
 

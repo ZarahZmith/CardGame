@@ -8,7 +8,7 @@ let cardPossibilities = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
 /**
  * This allows two players to play the game of war and it logs out the winner.
  * @param  {Array} players This has to be two strings
- * @return {void}          If there are more than two players it returns error
+ * @return {Object}        Returns the results of the game of war
  */
 module.exports = function warGame(players) {
   //this establishes that two players must be inserted in the argument when the fn is returned
