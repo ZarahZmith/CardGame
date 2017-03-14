@@ -8,10 +8,15 @@ module.exports = function deckOfCards() {
     cards = cards.concat(cardPossibilities);
   }
 
-  let randomNumber = Math.floor( Math.random() * 52 );
-  // console.log(randomNumber); //tells me the position within the cardPossibilities array
-  // console.log(cards[randomNumber]); //prints out this random number
+  let temporaryPlace;
 
+  for ( let i=0; i<100; i++ ) {
+    let randomNumber = Math.floor( Math.random() * 52 );
+    let randomSpot = Math.floor( Math.random() * 52 );
+    temporaryPlace = cards[randomSpot];
+    cards[randomSpot] = cards[randomNumber];
+    cards[randomNumber] = temporaryPlace;
+  }
 
   return cards;
 };
@@ -19,3 +24,4 @@ module.exports = function deckOfCards() {
 //allowed me to see the deck creation process
 // let myDeck = deckOfCards();
 // console.log(myDeck); //spits out the whole deck of cards
+// module.exports();
