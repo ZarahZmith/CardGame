@@ -43,10 +43,10 @@ module.exports = function warGame(players) {
   //creates time game was played in proper format
   let now = new Date();
   let date = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
-  console.log(date);
+  let time = now.getHours() + ':' + now.getMinutes();
 
   let warResults = {
-   date: 'MM-DD-YYYY at HH:mm',
+   gamePlayTime: date + ' at ' + time,
    players: [
      {name: players[0], numberOfWins: numberOfWinsForPlayerOne, winRatio: numberOfWinsForPlayerOne/26},
      {name: players[1], numberOfWins: numberOfWinsForPlayerTwo, winRatio: numberOfWinsForPlayerTwo/26}
