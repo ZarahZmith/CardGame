@@ -45,6 +45,7 @@ module.exports = function warGame(players) {
   let date = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
   let time = now.getHours() + ':' + now.getMinutes();
 
+  //this creates the desired format for the results of the war game
   let warResults = {
    gamePlayTime: date + ' at ' + time,
    players: [
