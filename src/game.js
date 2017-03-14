@@ -1,20 +1,29 @@
 
+
+//this connects the function created in deck.js to this file
 let buildDeck = require("./deck.js");
 
+/**
+ * This allows two players to play the game of war and it logs out the winner.
+ * @param  {Array} players This has to be two strings
+ * @return {void}          If there are more than two players it returns error
+ */
 module.exports = function warGame(players) {
+  //this establishes that two players must be inserted in the argument when the fn is returned
   if (arguments.length < 1) {
     return 'error';
   }
-
   if (players.length !== 2) {
     return 'error';
   }
 
+  //this gives a variable to the function established in the deck.js file
   let card = buildDeck();
 
-  // I believe this is the path to use to get the deck to register strings as numbers
-  // let Jack = 'J';
-  // console.log( Number(Jack) === 10 );
+  //these establish default vaules for the game, so they can be altered in the following for loop
+  let numberOfWinsForPlayerOne = 0;
+  let numberOfWinsForPlayerTwo = 0;
+  let numberOfTies = 0;
 
 
   // compare the two cards and see who wins
@@ -23,20 +32,30 @@ module.exports = function warGame(players) {
 
     // log out who won the hand ("player 1 won", or "tied")
     if ( card[i] > card[i+1] ){
-      let playerOne = 'player 1 won';
-      console.log(playerOne);
+      numberOfWinsForPlayerOne++;
     } else if ( card[i] < card[i+1] ){
-      let playerTwo = 'player 2 won';
-      console.log(playerTwo);
+      numberOfWinsForPlayerTwo++;
     } else if (card[i] === card[i+1]) {
-      let bothPlayers = 'tied';
-      console.log(bothPlayers);
+      numberOfTies++;
     }
   }
 
-  // counter to keep track of wins/losses
+  //creates time game was played in proper format
+  let now = new Date();
+  let date = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
+  console.log(date);
 
-  // return warResults;
+  let warResults = {
+   date: 'MM-DD-YYYY at HH:mm',
+   players: [
+     {name: players[0], numberOfWins: numberOfWinsForPlayerOne, winRatio: numberOfWinsForPlayerOne/26},
+     {name: players[1], numberOfWins: numberOfWinsForPlayerTwo, winRatio: numberOfWinsForPlayerTwo/26}
+   ],
+   ties: numberOfTies,
+  }
+
+  console.log(warResults);
+  return warResults;
 };
 
-warGame();
+module.exports(['John', 'Jerry']);
