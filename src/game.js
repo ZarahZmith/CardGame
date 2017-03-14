@@ -3,6 +3,8 @@
 //this connects the function created in deck.js to this file
 let buildDeck = require("./deck.js");
 
+let cardPossibilities = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
+
 /**
  * This allows two players to play the game of war and it logs out the winner.
  * @param  {Array} players This has to be two strings
@@ -30,12 +32,12 @@ module.exports = function warGame(players) {
   for (let i=0; i<=51; i+=2) {
     console.log( card[i], card[i+1] );
 
-    // log out who won the hand ("player 1 won", or "tied")
-    if ( card[i] > card[i+1] ){
+    // discerns who won the game based on the index "value" of each card in the deck
+    if ( cardPossibilities.indexOf(card[i]) > cardPossibilities.indexOf(card[i+1]) ){
       numberOfWinsForPlayerOne++;
-    } else if ( card[i] < card[i+1] ){
+    } else if ( cardPossibilities.indexOf(card[i]) < cardPossibilities.indexOf(card[i+1]) ){
       numberOfWinsForPlayerTwo++;
-    } else if (card[i] === card[i+1]) {
+    } else if ( cardPossibilities.indexOf(card[i]) === cardPossibilities.indexOf(card[i+1]) ) {
       numberOfTies++;
     }
   }
