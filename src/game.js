@@ -57,7 +57,7 @@ module.exports = function warGame(players) {
    ties: numberOfTies,
   }
 
-  console.log(warResults);
+  // console.log(warResults);
   return warResults;
 };
 
